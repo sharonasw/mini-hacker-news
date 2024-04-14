@@ -1,0 +1,5 @@
+[33mcommit 1c9f572ceac414e2fe7af056a7898e5a0c56f2c0[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/add-posts[m[33m, [m[1;32mmaster[m[33m)[m
+Author: weintrsh <wein.sharon@gmail.com>
+Date:   Sun Apr 14 17:52:48 2024 +0300
+
+    posts module init
