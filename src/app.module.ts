@@ -6,7 +6,7 @@ import { VotesModule } from './votes/votes.module';
 @Module({
   imports: [
     MongooseModule.forRoot('mongodb+srv://sweint:WMwm1404$@cluster0.vu0bzpn.mongodb.net/mini-hacker-news'), 
-    PostsModule, VotesModule, // Import the PostsModule
+    PostsModule, VotesModule
   ],
 })
 export class AppModule {}
