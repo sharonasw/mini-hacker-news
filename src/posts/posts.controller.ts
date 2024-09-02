@@ -11,7 +11,7 @@ export class PostsController {
   @Get()
   async findAll(): Promise<PostModel[]> {
     const n = 0;
-    console.log(n);
+    console.log(n+1);
     return this.postsService.findAll();
   }
   
