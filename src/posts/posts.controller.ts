@@ -10,6 +10,8 @@ export class PostsController {
 
   @Get()
   async findAll(): Promise<PostModel[]> {
+    const n = 0;
+    console.log(n);
     return this.postsService.findAll();
   }
   
