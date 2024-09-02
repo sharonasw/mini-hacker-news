@@ -8,10 +8,7 @@ export type VoteDocument = Vote & Document;
 export class Vote extends Document {
   @Prop({ type: 'ObjectId', ref: 'Post', required: true })
   post: Post;
-
-  @Prop({ required: true })
-  userId: string;
-
+  
   @Prop({ required: true })
   value: number; // 1 for upvote, -1 for downvote
 }

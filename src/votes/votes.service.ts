@@ -6,8 +6,7 @@ import { CreateVoteDto } from './dto/create-vote.dto';
 
 @Injectable()
 export class VotesService {
-    constructor(
-        @InjectModel(Vote.name) private readonly voteModel: Model<VoteDocument>,
+    constructor(@InjectModel(Vote.name) private readonly voteModel: Model<VoteDocument>,
     ) {}
 
     async findById(id: string): Promise<Vote> {

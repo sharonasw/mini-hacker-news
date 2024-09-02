@@ -1,6 +1,8 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Put, Body, HttpException, HttpStatus  } from '@nestjs/common';
 import { PostsService } from './posts.service';
 import { Post as PostModel } from './post.schema';
+//import { CreatePostDto } from './dtos/create-post-dto';
+import { UpdatePostDto } from './dtos/update-post-dto';
 
 @Controller('posts')
 export class PostsController {
@@ -10,9 +12,20 @@ export class PostsController {
   async findAll(): Promise<PostModel[]> {
     return this.postsService.findAll();
   }
+  
+  @Post()  
+  async create(@Body() createPostDto: {'content':string,'votes':number}) {
+    const newPost = await this.postsService.create(createPostDto);  
+    if(!newPost)
+      throw new HttpException('Server unavailable',HttpStatus.SERVICE_UNAVAILABLE);
+    return newPost;
+  }
 
-  @Post()
-  async create(@Body() createPostDto: { content: string }): Promise<PostModel> {
-    return this.postsService.create(createPostDto);
+  @Put('/vote')  
+  async vote(@Body() updatePostDto: UpdatePostDto) {
+    const updatedPost = await this.postsService.vote(updatePostDto);  
+    if(!updatedPost)
+      throw new HttpException('Server unavailable',HttpStatus.SERVICE_UNAVAILABLE);
+    return updatedPost;
   }
 }

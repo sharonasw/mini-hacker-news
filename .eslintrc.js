@@ -5,10 +5,15 @@ module.exports = {
     tsconfigRootDir: __dirname,
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint/eslint-plugin'],
+  plugins: ['@typescript-eslint/eslint-plugin','prettier'],
   extends: [
+    'eslint-recommended',    
     'plugin:@typescript-eslint/recommended',
+    'airbnb-base',    
     'plugin:prettier/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings', 
+    'plugin:import/typescript',
   ],
   root: true,
   env: {
@@ -21,5 +26,14 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    'prettier/prettier': 'error',
+    'indent':[
+      'error',
+      4
+    ],
+    'quotes':[
+      'error',
+      'single'
+    ],
   },
 };
